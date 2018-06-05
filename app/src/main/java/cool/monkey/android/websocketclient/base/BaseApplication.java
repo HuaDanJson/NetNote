@@ -7,7 +7,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 
 import cool.monkey.android.websocketclient.callback.ForegroundCallbacks;
-import cool.monkey.android.websocketclient.service.WebsocketServer;
+import cool.monkey.android.websocketclient.service.CustomWebsocketServer;
 import cool.monkey.android.websocketclient.utils.MessageBeanUtils;
 
 public class BaseApplication extends Application {
@@ -35,10 +35,10 @@ public class BaseApplication extends Application {
             @Override
             public void onBecameForeground() {
                 LogUtils.d("TextChatManagerService initAppStatusListener CCApplication =  connectServer ");
-                if (WebsocketServer.client == null) {
+                if (CustomWebsocketServer.client == null) {
                     starWebSocketService();
                 } else {
-                    WebsocketServer.connectServer();
+                    CustomWebsocketServer.connectServer();
                 }
             }
 
@@ -51,7 +51,7 @@ public class BaseApplication extends Application {
 
     public void starWebSocketService() {
         try {
-            Intent startIntent = new Intent(this, WebsocketServer.class);
+            Intent startIntent = new Intent(this, CustomWebsocketServer.class);
             startService(startIntent);
         } catch (Exception e) {
 

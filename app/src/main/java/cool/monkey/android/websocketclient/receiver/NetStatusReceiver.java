@@ -7,7 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import cool.monkey.android.websocketclient.base.BaseApplication;
-import cool.monkey.android.websocketclient.service.WebsocketServer;
+import cool.monkey.android.websocketclient.service.CustomWebsocketServer;
 
 public class NetStatusReceiver extends BroadcastReceiver {
     @Override
@@ -22,7 +22,7 @@ public class NetStatusReceiver extends BroadcastReceiver {
             // 获取当前网络状态信息
             NetworkInfo info = connectivityManager.getActiveNetworkInfo();
             if (info != null && info.isAvailable()) {
-                WebsocketServer.connectServer();
+                CustomWebsocketServer.connectServer();
             }
         }
     }

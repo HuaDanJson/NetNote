@@ -9,18 +9,18 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.blankj.utilcode.util.LogUtils;
-
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.drafts.Draft_6455;
-import org.java_websocket.handshake.ServerHandshake;
+import com.blankj.utilcode.util.ToastUtils;
 
 import java.net.URI;
 
 import cool.monkey.android.websocketclient.BuildConfig;
 import cool.monkey.android.websocketclient.base.BaseApplication;
 import cool.monkey.android.websocketclient.constans.ConstPath;
+import cool.monkey.android.websocketclient.websocket.client.WebSocketClient;
+import cool.monkey.android.websocketclient.websocket.drafts.Draft_6455;
+import cool.monkey.android.websocketclient.websocket.handshake.ServerHandshake;
 
-public class WebsocketServer extends Service {
+public class CustomWebsocketServer extends Service {
 
     public static WebSocketClient client;
     private static WebsocketServerListener mTextChatManagerListener;
@@ -60,6 +60,7 @@ public class WebsocketServer extends Service {
                 @Override
                 public void onOpen(ServerHandshake arg0) {
                     LogUtils.d("TextChatManagerService  connectServer onOpen ");
+                    ToastUtils.showLong("链接服务器成功");
                 }
 
                 @Override
@@ -88,6 +89,16 @@ public class WebsocketServer extends Service {
 
     public static boolean isWebSocketClientAvaliable() {
         return ((client != null) && (client.isOpen()) && (!client.isClosed()) && (!client.isClosing()) && (!client.isConnecting()));
+    }
+
+    public static void starWebSocketService() {
+        LogUtils.d("TextChatManagerService  starWebSocketService()");
+        try {
+            Intent startIntent = new Intent(BaseApplication.getInstance(), CustomWebsocketServer.class);
+            BaseApplication.getInstance().startService(startIntent);
+        } catch (Exception e) {
+
+        }
     }
 
     public static boolean isNetConnect() {

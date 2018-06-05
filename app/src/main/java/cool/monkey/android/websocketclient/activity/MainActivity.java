@@ -23,10 +23,10 @@ import butterknife.ButterKnife;
 import cool.monkey.android.websocketclient.R;
 import cool.monkey.android.websocketclient.adapter.MessageAdapter;
 import cool.monkey.android.websocketclient.bean.MessageBean;
-import cool.monkey.android.websocketclient.service.WebsocketServer;
+import cool.monkey.android.websocketclient.service.CustomWebsocketServer;
 import cool.monkey.android.websocketclient.utils.MessageBeanUtils;
 
-public class MainActivity extends AppCompatActivity implements WebsocketServer.WebsocketServerListener, View.OnLayoutChangeListener {
+public class MainActivity extends AppCompatActivity implements CustomWebsocketServer.WebsocketServerListener, View.OnLayoutChangeListener {
 
     @BindView(R.id.rv_message_main_activity) RecyclerView mRecyclerView;
     @BindView(R.id.edt_input_message_main_activity) EditText mEditText;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements WebsocketServer.W
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         starWebSocketService();
-        WebsocketServer.setWebsocketServerListener(this);
+        CustomWebsocketServer.setWebsocketServerListener(this);
         initRecyclerView();
         initEditTextSendClick();
         sendHeartbeat();
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements WebsocketServer.W
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (!TextUtils.isEmpty(mEditText.getText().toString())) {
-                    if (WebsocketServer.isWebSocketClientAvaliable()) {
+                    if (CustomWebsocketServer.isWebSocketClientAvaliable()) {
                         MessageBean messageBean = new MessageBean();
                         messageBean.setCreateAt(System.currentTimeMillis());
                         messageBean.setSendUserId(2);
@@ -66,11 +66,11 @@ public class MainActivity extends AppCompatActivity implements WebsocketServer.W
                         messageBeanList.add(messageBean);
                         MessageBeanUtils.getInstance().insertOneData(messageBean);
                         initRecyclerView();
-                        WebsocketServer.client.send(mEditText.getText().toString());
+                        CustomWebsocketServer.client.send(mEditText.getText().toString());
                         mEditText.setText("");
                     } else {
                         LogUtils.d("not connect");
-                        WebsocketServer.connectServer();
+                        CustomWebsocketServer.connectServer();
                     }
                 }
                 return true;
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements WebsocketServer.W
 
     public void starWebSocketService() {
         try {
-            Intent startIntent = new Intent(this, WebsocketServer.class);
+            Intent startIntent = new Intent(this, CustomWebsocketServer.class);
             startService(startIntent);
         } catch (Exception e) {
 
@@ -144,8 +144,8 @@ public class MainActivity extends AppCompatActivity implements WebsocketServer.W
 
                 @Override
                 public void onFinish() {
-                    if (WebsocketServer.isWebSocketClientAvaliable()) {
-                        WebsocketServer.client.sendPing();
+                    if (CustomWebsocketServer.isWebSocketClientAvaliable()) {
+                        CustomWebsocketServer.client.sendPing();
                     } else {
                         starWebSocketService();
                     }
