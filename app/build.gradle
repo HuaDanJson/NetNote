@@ -47,4 +47,5 @@ dependencies {
     implementation 'com.blankj:utilcode:1.14.0'
     implementation 'org.greenrobot:greendao:3.2.0'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'cn.bmob.android:bmob-sdk:3.5.0'
 }

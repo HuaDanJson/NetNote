@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.Utils;
 import cool.monkey.android.websocketclient.callback.ForegroundCallbacks;
 import cool.monkey.android.websocketclient.service.CustomWebsocketServer;
 import cool.monkey.android.websocketclient.utils.MessageBeanUtils;
+import cool.monkey.android.websocketclient.utils.ToastHelper;
 
 public class BaseApplication extends Application {
 
@@ -25,6 +26,7 @@ public class BaseApplication extends Application {
         Utils.init(this);
         initAppStatusListener();
         MessageBeanUtils.Init(this);
+        ToastHelper.init(this);
     }
 
     /**

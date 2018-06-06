@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.FirstActivity">
+
+    <Button
+        android:id="@+id/btn_chat_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="20dp"
+        android:text="聊天"/>
+
+    <Button
+        android:id="@+id/btn_she_qu_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="20dp"
+        android:text="社区"/>
+
+    <Button
+        android:id="@+id/btn_userInfo_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="20dp"
+        android:text="更改个人信息"/>
+
+    <Button
+        android:id="@+id/btn_log_out_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="20dp"
+        android:text="退出登录"/>
+
+</LinearLayout>
