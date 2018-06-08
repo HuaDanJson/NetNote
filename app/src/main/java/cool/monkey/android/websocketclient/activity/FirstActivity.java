@@ -24,12 +24,12 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         ButterKnife.bind(this);
-        Bmob.initialize(this, "9b1536fd1e7bd5615b5c4d0ea8cc92c8");
+        Bmob.initialize(this, "9b6612ae654764c1774e625e3acb6bfe");
     }
 
     @OnClick(R.id.btn_chat_activity)
     public void chatClick() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, NoteActivity.class));
     }
 
     @OnClick(R.id.btn_she_qu_activity)

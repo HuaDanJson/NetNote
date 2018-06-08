@@ -15,7 +15,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welecome);
         //第一：默认初始化
-        Bmob.initialize(this, "9b1536fd1e7bd5615b5c4d0ea8cc92c8");
+        Bmob.initialize(this, "9b6612ae654764c1774e625e3acb6bfe");
         BmobUser bmobUser = BmobUser.getCurrentUser();
         if (bmobUser != null) {
             // 允许用户使用应用

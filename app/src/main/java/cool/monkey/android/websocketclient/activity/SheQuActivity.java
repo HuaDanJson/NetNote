@@ -60,7 +60,6 @@ public class SheQuActivity extends AppCompatActivity {
                     }
                 } else {
                     ToastHelper.showShortMessage("获取数据失败");
-
                 }
 
             }

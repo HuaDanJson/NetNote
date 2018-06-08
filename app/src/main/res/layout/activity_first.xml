@@ -5,8 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context=".activity.FirstActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:gravity="center"
+        android:text="主  页"
+        android:textColor="@color/yellow"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        />
 
     <Button
         android:id="@+id/btn_chat_activity"
@@ -14,8 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
-        android:layout_marginTop="20dp"
-        android:text="聊天"/>
+        android:layout_marginTop="60dp"
+        android:background="@drawable/login_btn_register_false"
+        android:text="记事本"
+        android:textColor="#ffff00"/>
 
     <Button
         android:id="@+id/btn_she_qu_activity"
@@ -24,7 +38,9 @@
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
         android:layout_marginTop="20dp"
-        android:text="社区"/>
+        android:background="@drawable/login_btn_register_false"
+        android:text="社区"
+        android:textColor="#ffff00"/>
 
     <Button
         android:id="@+id/btn_userInfo_activity"
@@ -33,7 +49,9 @@
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
         android:layout_marginTop="20dp"
-        android:text="更改个人信息"/>
+        android:background="@drawable/login_btn_register_false"
+        android:text="更改个人信息"
+        android:textColor="#ffff00"/>
 
     <Button
         android:id="@+id/btn_log_out_activity"
@@ -42,6 +60,8 @@
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
         android:layout_marginTop="20dp"
-        android:text="退出登录"/>
+        android:background="@drawable/login_btn_register_false"
+        android:text="退出登录"
+        android:textColor="#ffff00"/>
 
 </LinearLayout>

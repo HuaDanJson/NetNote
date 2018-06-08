@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
-        Bmob.initialize(this, "9b1536fd1e7bd5615b5c4d0ea8cc92c8");
+        Bmob.initialize(this, "9b6612ae654764c1774e625e3acb6bfe");
         btnRegisterActivitySubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
